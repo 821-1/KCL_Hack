@@ -126,15 +126,10 @@ export default function MapPage() {
           const tripEndStopName = endPoint.bus_stop_name;
 
           let busMarker: maplibregl.Marker | null = null;
-          const colors = ["#ff5252", "#4caf50", "#ff9800", "#9c27b0", "#00bcd4", "#3887be"];
-          const busColor = colors[index % colors.length];
 
           const timer = setInterval(() => {
             const now = new Date();
-            now.setHours(now.getHours() - 12); // 12時間前シミュレーション
-
-            const currentSec = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-
+            const currentSec = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();            
             // 運行時間外ならマーカーを削除
             if (currentSec < startSec || currentSec > endSec) {
               if (busMarker) {
@@ -265,8 +260,6 @@ export default function MapPage() {
   useEffect(() => {
     const clockTimer = setInterval(() => {
       const now = new Date();
-      now.setHours(now.getHours() - 12);
-
       const h = String(now.getHours()).padStart(2, '0');
       const m = String(now.getMinutes()).padStart(2, '0');
       const s = String(now.getSeconds()).padStart(2, '0');
@@ -438,8 +431,8 @@ export default function MapPage() {
           gap: "6px"
         }}
       >
-        <span style={{ width: "8px", height: "8px", backgroundColor: "#ff9800", borderRadius: "50%", display: "inline-block" }}></span>
-        シミュレーション時刻 (-12h): {currentTimeStr || "読み込み中..."}
+        <span style={{ width: "8px", height: "8px", backgroundColor: "#4caf50", borderRadius: "50%", display: "inline-block" }}></span>
+        現在時刻: {currentTimeStr || "読み込み中..."}
       </div>
 
       {isListOpen && (
