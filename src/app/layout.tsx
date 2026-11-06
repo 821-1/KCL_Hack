@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js OSM Map (TS)",
-  description: "Displaying OSM GeoJSON using MapLibre GL JS and TypeScript",
+  title: "飯塚バスマップ",
+  description: "iizuka_bus_map",
 };
 
 export default function RootLayout({
